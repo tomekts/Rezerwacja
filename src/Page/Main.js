@@ -7,6 +7,7 @@ function Main() {
     const RegisterPlace=[]; // tablica
     const [place,] = useState(db);     
     const [Reg, SetReg] = useState(); 
+    let first = true;
     
     var tablica = [];
     
@@ -28,7 +29,7 @@ function Main() {
             }
         }   
     
-        console.log(localStorage.getItem("place"));
+        
         
         //zapisywanie bazy do tabeli
     
@@ -55,12 +56,15 @@ function Main() {
     
     
     //zaznaczanie i zapisywanie miejsca 
-    const chosePlace = (e)=>{            
-        if (RegisterPlace.length===0 )(                
+    const chosePlace = (e)=>{
+        if (first){ 
+            first =false; 
+            console.log(first);          
             Reg.forEach(element => {
                 RegisterPlace.push(element)
             })
-        )    
+           
+        }   
 
          if (!RegisterPlace.find(RegisterPlace => RegisterPlace ===e.target.id)) {
             RegisterPlace.push(e.target.id)            
@@ -109,8 +113,8 @@ function Main() {
                 alert('Brak wymaganej ulości miejsc')
             }else{
                 setTimeout(() =>{a.forEach(element => {
-                    let x = (element.split(',').[0]);
-                    let y = (element.split(',').[1]);
+                    let x = (element.split(',').[1]);
+                    let y = (element.split(',').[0]);
                     document.getElementById(y+','+x).className='nr chose';
                 });}, 200)
                 set(e,1,);
@@ -192,7 +196,7 @@ function Main() {
                             <div key={x} >
                                 {pl.map((el, y) =>(                                    
                                     <div key={Math.random()} 
-                                    id={[y,x]} 
+                                    id={[x,y]} 
                                     className={`nr ${tablica[x][y]===null? 'unvisible' : ''} 
                                     ${tablica[x][y]? 'busy' : ''}` }
                                     
