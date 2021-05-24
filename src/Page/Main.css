@@ -136,3 +136,41 @@
         margin-right: 15px;
     }
 }
+
+@media screen and (max-width:600px) {
+
+    .nr{
+        height: 15px;
+        width: 15px;
+        transition: ease 1s;
+    }
+
+    .icon{
+        height: 15px;
+        width: 15px;
+    }
+
+    .button{
+        background-color: white;    
+        border: solid 1px; 
+        width: 55px;
+        height: 10%;   
+        padding: 2px;
+        margin: auto;
+        float: right; 
+        transition: 1s ease; 
+        font-size: 13px;
+    }
+
+    .history{      
+        display: inline-flex;
+        width: 425px;   
+        margin-top: 15px; 
+        font-size: 13px;   
+    }
+
+    .box{    
+        display: inline-flex;
+        margin-right: 5px;
+    }
+}

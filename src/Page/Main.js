@@ -8,17 +8,12 @@ function Main() {
     const [place,] = useState(db);     
     const [Reg, SetReg] = useState(); 
     let first = true;
-    
     var tablica = [];
     
-
     // sprwadzanie wymiarów miejsc do rezerwacji i pobieranie z pliku lub localu
     if (!localStorage.getItem("place")) {
-        console.log('brak danych  w localstorage');
-
         let maxX=0;
         let maxY=0;   
-        
         
         for (var i =0; i < place.seats.length; i++){
             if (maxX<place.seats.[i].cords.x){
@@ -28,11 +23,8 @@ function Main() {
                 maxY=place.seats.[i].cords.y
             }
         }   
-    
-        
         
         //zapisywanie bazy do tabeli
-    
         for (var index = 0; index <= maxX; index++) {
             tablica[index] = [];
         }
@@ -47,10 +39,7 @@ function Main() {
         }
 
         localStorage.setItem('place', JSON.stringify(tablica))
-        console.log('pobrano dane z pliku');
-        
     }else{
-        console.log('pobrane dane z locala');
         tablica= JSON.parse(localStorage.getItem("place"))
     }
     
@@ -59,7 +48,6 @@ function Main() {
     const chosePlace = (e)=>{
         if (first){ 
             first =false; 
-            console.log(first);          
             Reg.forEach(element => {
                 RegisterPlace.push(element)
             })
@@ -74,9 +62,6 @@ function Main() {
             RegisterPlace.splice(index, 1)
             document.getElementById(e.target.id).className='nr'; 
         }
-
-        console.log(RegisterPlace);       
-        
     }
 
     const Save = (e)=>{
@@ -147,11 +132,6 @@ function Main() {
                 }                          
             }                        
         }
-        
-        // if (placeT.length>=e.target.count.value || placeF.length>=e.target.count.valuendition) {
-        //     console.log('brak miejsc');
-        // }
-        
                
        if (count===parseInt(e.target.count.value)) {
         SetReg(placeF)
@@ -159,15 +139,10 @@ function Main() {
        }else{
         SetReg(placeT)
         Active(placeT)
-        if (e.target.near.checked) {
-            alert('nie udało sie wyszukac miejsc obok siebie')
-        }        
+            if (e.target.near.checked) {
+                alert('nie udało sie wyszukac miejsc obok siebie')
+            }        
        }    
-
-       
-        
-        
-        
     }
 
     //przejscia między stronami
@@ -199,8 +174,6 @@ function Main() {
                                     id={[x,y]} 
                                     className={`nr ${tablica[x][y]===null? 'unvisible' : ''} 
                                     ${tablica[x][y]? 'busy' : ''}` }
-                                    
-                                    
                                     onClick={tablica[x][y]? null : e=>(chosePlace(e))}
                                     > 
                                     {tablica[x][y]===null? 
@@ -212,7 +185,6 @@ function Main() {
                                         ''
                                     }
                                     </div>
-                                   
                                 ))
                                 }
                                 
@@ -238,7 +210,6 @@ function Main() {
                             <div className={'text'}>Twój wybór</div>
                         </div>
                         
-                        
                         <div className={'button'} onClick={(e)=> Save(e)}>Rezerwuj</div>                        
                         
                         
@@ -249,17 +220,13 @@ function Main() {
                     <br></br>
                     Wybrane miejsca<p></p>
                     {Reg? 
-                    
-                
-                    Reg.length===0? 
-                    'tak'
+                        Reg.length===0? 
+                        'tak'
                     :
-                    Reg.map((item, index) =>(
-                        <div key={item}>- rząd x{item.split(',').[0]}, 
-                        miejsce y{item.split(',').[1]} (id{index+1})</div>
+                        Reg.map((item, index) =>(
+                            <div key={item}>- rząd x{item.split(',').[0]}, 
+                            miejsce y{item.split(',').[1]} (id{index+1})</div>
                     ))
-                    
-                
                 : 
                 'Brak zarezerwowanych terminów'
                     }
