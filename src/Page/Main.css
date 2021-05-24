@@ -1,0 +1,102 @@
+.show{
+    display: block;
+}
+
+.no_show{
+    display: none;
+}
+
+.unvisible{
+    visibility: hidden;
+}
+
+.form{    
+    padding-top: 20%;
+}
+.form input{
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+ 
+
+.button_reg{
+    background-color: white;    
+    border: solid 1px; 
+    width: 250px;
+    height: 30px;  
+    /* padding: 15px; */
+    margin: auto;
+    margin-top: 15px;    
+    transition: 1s ease; 
+}
+.button_reg:hover{
+    background-color: rgb(212, 212, 212);
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+.choise{
+    display: block;    
+}
+
+.nr{
+    background-color: white;
+    display: inline-block;
+    margin: 5px;    
+    height: 50px;
+    width: 50px;
+    border: solid 1px;
+    transition: ease 0.5s;
+}
+
+.busy{
+    background-color: gray;
+}
+
+.chose{
+    background-color: orange;
+    transition: ease 1s;
+}
+
+.history{      
+    display: inline-block;
+    width: 925px;   
+    margin-top: 50px;    
+}
+
+.box{    
+    display: inline-flex;
+    margin-right: 35px;
+}
+.text{    
+    display: inline-block;    
+    margin:  auto;
+    padding-left: 5px;
+}
+
+.icon{   
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: solid 1px;      
+}
+
+.button{
+    background-color: white;    
+    border: solid 1px; 
+    width: 210px;
+    height: 50%;   
+    padding: 15px;
+    margin: auto;
+    float: right; 
+    transition: 1s ease;   
+}
+
+.button:hover{
+    background-color: rgb(212, 212, 212);
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+
